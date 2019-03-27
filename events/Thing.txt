@@ -1,0 +1,67 @@
+namespace = thing
+
+country_event = {
+	id = thing.1
+	title = "thing.EVTNAME1"
+	desc = "thing.EVTDESC1"
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = "thing.EVTOPTA1"
+		add_country_modifier = {
+			name = "completely_not_cheating"
+			duration = -1
+		}
+        ai_chance = {
+            factor = 0
+        }
+	}
+    
+    option = {
+		name = "thing.EVTOPTB1"
+		add_prestige = 1
+        ai_chance = {
+            factor = 1
+        }
+	}
+}
+
+country_event = {
+	id = thing.2
+	title = "thing.EVTNAME2"
+	desc = "thing.EVTDESC2"
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = "thing.EVTOPTA2"
+		add_country_modifier = {
+			name = "infantry_banner"
+			duration = -1
+		}
+        ai_chance = {
+            factor = 0
+        }
+	}
+    
+    option = {
+		name = "thing.EVTOPTB2"
+		remove_country_modifier = infantry_banner
+        ai_chance = {
+            factor = 0
+        }
+	}
+    
+    option = {
+		name = "thing.EVTOPTC2"
+		add_prestige = 1
+        ai_chance = {
+            factor = 1
+        }
+	}
+}

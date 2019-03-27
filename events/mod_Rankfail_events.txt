@@ -1,0 +1,655 @@
+##########################################
+# written by Life is Comedy
+#
+# Events to transform high ranked countries in lower ranked
+# The event has to be bad
+# Thouth to add random event as a reward of good organization after this situation
+###########################################
+
+namespace = mod_Rankfail_event
+
+# NB: TO ADD EXEPTION!!!
+# ALL GOV TYPES WITH FIXED RANK!
+# or would this event just don't work but still fire?
+# Also Exeption for Byzantium, something like not loosing Empire until (random) 1600
+
+# From Monarchy to Ducate 1
+country_event = {
+	id = mod_Rankfail_event.1
+	title = "mod_Rankfail_event.1.EVTNAME"
+	desc = "mod_Rankfail_event.1.EVTDESC"
+	picture = BAD_WITH_MONARCH_eventPicture
+	#picture = COURT_eventPicture
+
+	trigger = {
+		government_rank = 2
+		NOT = { government_rank = 3 }
+		NOT = { prestige = 80 }
+		NOT = { total_development = 50 }
+		NOT = { num_of_cities = 3 }
+		# Governements fixed rank
+		NOT = { government = shogunate }
+		NOT = { government = papal_government }
+		NOT = {
+			OR = {
+				technology_group = east_african
+				technology_group = central_african
+				technology_group = sub_saharan
+				technology_group = mesoamerican
+				technology_group = south_american
+				technology_group = andean
+				technology_group = indian
+				technology_group = chinese
+			}
+		}
+		NOT = { adm = 4 }
+		NOT = { dip = 5 }
+		NOT = { mil = 6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120 # 10 years
+		modifier = {
+			factor = 1.2
+			prestige = 60
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -10 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -25 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -50 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { total_development = 10 }
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				tag = TVE
+				tag = RYA
+				tag = TRE
+				tag = SRV
+				tag = GAZ
+			}
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				tag = AKK
+				tag = TAB
+			}
+		}
+		modifier = {
+			factor = 100 # Virtually will never happen
+			AND = {
+				OR = {
+					tag = RIG
+					tag = NAV
+					tag = CYP
+					tag = ORM
+				}
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 2
+						is_overseas = no
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "mod_Rankfail_event.1.a"
+		set_government_rank = 1
+		add_adm_power = -10
+		add_dip_power = -50
+		hidden_effect = {
+			random_list = {
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 60
+					}
+				}
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 90
+					}
+				}
+				11 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 180
+					}
+				}
+				65 = {
+					# nothing
+				}
+			}
+		}
+	}
+	option = {
+		name = "mod_Rankfail_event.1.b"
+		set_government_rank = 1
+		add_legitimacy = -10
+		add_prestige = -10
+		hidden_effect = {
+			random_list = {
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 60
+					}
+				}
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 90
+					}
+				}
+				11 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 180
+					}
+				}
+				65 = {
+					# nothing
+				}
+			}
+		}
+	}
+}
+
+# From Monarchy to Ducate # "Third worlds"
+country_event = {
+	id = mod_Rankfail_event.11
+	title = "mod_Rankfail_event.1.EVTNAME"
+	desc = "mod_Rankfail_event.1.EVTDESC"
+	picture = BAD_WITH_MONARCH_eventPicture
+	#picture = COURT_eventPicture
+
+	trigger = {
+		government_rank = 2
+		NOT = { government_rank = 3 }
+		NOT = { prestige = 50 }
+		NOT = { total_development = 20 }
+		NOT = { num_of_cities = 3 }
+		# Governements fixed rank
+		NOT = { government = shogunate }
+		NOT = { government = papal_government }
+		OR = {
+			technology_group = east_african
+			technology_group = central_african
+			technology_group = sub_saharan
+			technology_group = mesoamerican
+			technology_group = south_american
+			technology_group = andean
+			technology_group = indian
+			technology_group = chinese
+		}
+		NOT = { adm = 4 }
+		NOT = { dip = 5 }
+		NOT = { mil = 6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 360 # 30 years
+		modifier = {
+			factor = 1.2
+			prestige = 10
+		}
+		modifier = {
+			factor = 1.2
+			prestige = 25
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -10 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -25 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -50 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { total_development = 10 }
+		}
+		modifier = {
+			factor = 100 # Virtually will never happen
+			AND = {
+				OR = {
+					tag = DGL
+					tag = TID
+					tag = TER
+					tag = BTN
+					tag = LUW
+					tag = MKS
+					tag = PAT
+					tag = KED
+				}
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 2
+						is_overseas = no
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "mod_Rankfail_event.1.a"
+		set_government_rank = 1
+		add_adm_power = -10
+		add_dip_power = -50
+		hidden_effect = {
+			random_list = {
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 60
+					}
+				}
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 90
+					}
+				}
+				11 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 180
+					}
+				}
+				65 = {
+					# nothing
+				}
+			}
+		}
+	}
+	option = {
+		name = "mod_Rankfail_event.1.b"
+		set_government_rank = 1
+		add_legitimacy = -10
+		add_prestige = -10
+		hidden_effect = {
+			random_list = {
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 60
+					}
+				}
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 90
+					}
+				}
+				11 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 180
+					}
+				}
+				65 = {
+					# nothing
+				}
+			}
+		}
+	}
+}
+
+# From Empire to Monarchy
+country_event = {
+	id = mod_Rankfail_event.2
+	title = "mod_Rankfail_event.2.EVTNAME"
+	desc = "mod_Rankfail_event.2.EVTDESC"
+	picture = BAD_WITH_MONARCH_eventPicture
+	#picture = COURT_eventPicture
+
+	trigger = {
+		government_rank = 3
+		NOT = { prestige = 90 }
+		NOT = { total_development = 300 }
+		NOT = { num_of_cities = 16 }
+		# Governements fixed rank
+		NOT = { government = celestial_empire }
+		NOT = { government = revolutionary_republic }
+		NOT = {
+			AND = {
+				tag = BYZ
+				NOT = { is_year = 1500 }
+			}
+		}
+		NOT = {
+			AND = {
+				tag = ETH
+				OR = {
+					adm = 3
+					dip = 3
+					mil = 3
+					num_of_owned_provinces_with = {
+						value = 12
+						is_overseas = no
+					}
+				}
+			}
+		}
+		NOT = { adm = 6 }
+		NOT = { dip = 6 }
+		NOT = { mil = 6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 60 # 5 years
+		modifier = {
+			factor = 1.2
+			prestige = 70
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -10 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -25 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { prestige = -50 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { total_development = 200 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { total_development = 100 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { num_of_cities = 10 }
+		}
+	}
+	
+	option = {
+		name = "mod_Rankfail_event.2.a"
+		set_government_rank = 2
+		add_adm_power = -15
+		add_dip_power = -75
+		hidden_effect = {
+			random_list = {
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 60
+					}
+				}
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 90
+					}
+				}
+				11 = {
+					country_event = {
+						id = mod_Rankfail_event.3
+						days = 180
+					}
+				}
+				65 = {
+					# nothing
+				}
+			}
+		}
+	}
+	option = {
+		name = "mod_Rankfail_event.2.b"
+		set_government_rank = 2
+		add_legitimacy = -15
+		add_prestige = -15
+		hidden_effect = {
+			random_list = {
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 60
+					}
+				}
+				12 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 90
+					}
+				}
+				11 = {
+					country_event = {
+						id = mod_Rankfail_event.4
+						days = 180
+					}
+				}
+				65 = {
+					# nothing
+				}
+			}
+		}
+		
+	}
+}
+
+# Random benefit for having choosen to solve as interior
+country_event = {
+	id = mod_Rankfail_event.3
+	title = "mod_Rankfail_event.3.EVTNAME"
+	desc = "mod_Rankfail_event.3.EVTDESC"
+	picture = COURT_eventPicture
+	#picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+	
+	#mean_time_to_happen = {
+	#}
+	
+	option = {
+		name = "mod_Rankfail_event.3.a"
+		if = {
+			limit = {
+				stability = 3
+			}
+			add_adm_power = 100
+		}
+		if = {
+			limit = {
+				NOT = { stability = 0 }
+			}
+			add_stability = 2
+		}
+		if = {
+			limit = {
+				stability = 0
+				NOT = { stability = 3 }
+			}
+			add_stability = 1
+		}
+		if = {
+			limit = {
+				government = republic
+				NOT = { adm = 6 }
+			}
+			change_adm = 1
+			add_adm_power = 25
+		}
+		if = {
+			limit = {
+				government = republic
+				adm = 6
+			}
+			#change_adm = 0
+			add_adm_power = 50
+		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+				NOT = { adm = 6 }
+			}
+			change_adm = 1
+		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+				NOT = { adm = 6 }
+			}
+			#change_adm = 0
+			add_adm_power = 25
+		}
+		random_list = {
+			25 = {
+				change_heir_adm = 1
+			}
+			75 = {
+			}
+		}
+	}
+}
+
+# Random benefit for having choosen to solve as exterior
+country_event = {
+	id = mod_Rankfail_event.4
+	title = "mod_Rankfail_event.4.EVTNAME"
+	desc = "mod_Rankfail_event.4.EVTDESC"
+	picture = COURT_eventPicture
+	#picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+	
+	#mean_time_to_happen = {
+	#}
+	
+	option = {
+		name = "mod_Rankfail_event.4.a"
+		if = {
+			limit = {
+				government = monarchy
+				NOT = { legitimacy = 95 }
+			}
+			add_legitimacy = 20
+		}
+		if = {
+			limit = {
+				government = monarchy
+				legitimacy = 95
+			}
+			add_prestige = 10
+		}
+		if = {
+			limit = {
+				government = republic
+				NOT = { republican_tradition = 95 }
+			}
+			add_republican_tradition = 10
+		}
+		if = {
+			limit = {
+				government = republic
+				republican_tradition = 95
+			}
+			add_prestige = 10
+		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+				dip = 4
+				NOT = { dip = 5 }
+			}
+			change_dip = 2
+		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+				dip = 5
+				NOT = { dip = 6 }
+			}
+			change_dip = 1
+			add_dip_power = 25
+		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+				dip = 6
+			}
+			#change_dip = 0
+			add_dip_power = 50
+		}
+		if = {
+			limit = {
+				government = republic
+				dip = 4
+				NOT = { dip = 5 }
+			}
+			change_dip = 2
+			add_dip_power = 25
+		}
+		if = {
+			limit = {
+				government = republic
+				dip = 5
+				NOT = { dip = 6 }
+			}
+			change_dip = 1
+			add_dip_power = 50
+		}
+		if = {
+			limit = {
+				government = republic
+				dip = 6
+			}
+			#change_dip = 0
+			add_dip_power = 100
+		}
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			random_list = {
+				5 = {
+					change_heir_dip = 2
+					add_heir_claim = 15
+				}
+				20 = {
+					change_heir_dip = 1
+					add_heir_claim = 10
+				}
+				75 = {
+				}
+			}
+			
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 5
+		}
+	}
+}

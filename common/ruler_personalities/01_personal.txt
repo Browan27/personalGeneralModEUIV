@@ -1,0 +1,124 @@
+god_emperor_personality = {
+	allow = {
+		
+	}
+	
+	chance = {
+        modifier = {
+			factor = -2
+		}
+	}
+	
+	global_unrest = -2
+    legitimacy = 1
+	republican_tradition = 1
+    idea_cost = -0.1
+	war_exhaustion = -0.1
+    advisor_cost = -0.2
+    stability_cost_modifier = -0.2
+    ae_impact = -0.10
+    advisor_pool = 1
+    reduced_liberty_desire = 5
+    global_autonomy = -0.05
+    yearly_corruption = -0.05
+    technology_cost = -0.1
+    global_colonial_growth = 20
+    diplomatic_reputation = 1
+    leader_land_manuever = 1
+    leader_land_shock = 1
+    leader_land_fire = 1
+    discipline = 0.1
+    land_morale = 0.1
+    
+	nation_designer_cost = 10
+}
+
+basileus_personality = {
+	allow = {
+		
+	}
+	
+	chance = {
+        modifier = {
+			factor = -2
+		}
+	}
+	
+	global_unrest = -2
+    legitimacy = 1
+	republican_tradition = 1
+    ae_impact = -0.10
+    reduced_liberty_desire = 5
+    global_autonomy = -0.05
+    yearly_corruption = -0.05
+    diplomatic_reputation = 1
+    improve_relation_modifier = 0.2
+    
+	nation_designer_cost = 10
+}
+
+true_roman_personality = {
+	allow = {
+		
+	}
+	
+	chance = {
+        modifier = {
+			factor = -2
+		}
+	}
+	
+	war_exhaustion = -0.1
+    leader_land_manuever = 1
+    leader_land_shock = 1
+    leader_land_fire = 1
+    discipline = 0.1
+    land_morale = 0.1
+    
+	nation_designer_cost = 10
+}
+
+founding_father_personality = {
+	allow = {
+		
+	}
+	
+	chance = {
+        modifier = {
+			factor = -2
+		}
+	}
+	
+	global_unrest = -2
+    legitimacy = 1
+	republican_tradition = 1
+    ae_impact = -0.10
+    reduced_liberty_desire = 5
+    global_autonomy = -0.05
+    yearly_corruption = -0.05
+    diplomatic_reputation = 1
+    improve_relation_modifier = 0.2
+    
+	nation_designer_cost = 10
+}
+
+true_patriot_personality = {
+	allow = {
+		
+	}
+	
+	chance = {
+        modifier = {
+			factor = -2
+		}
+	}
+	
+	war_exhaustion = -0.1
+    leader_land_manuever = 1
+    leader_land_shock = 1
+    leader_land_fire = 1
+    discipline = 0.1
+    land_morale = 0.1
+    
+	nation_designer_cost = 10
+}

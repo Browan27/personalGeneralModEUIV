@@ -1,0 +1,35 @@
+country_decisions = {
+
+	infantry_banners = {
+		potential = {
+			NOT = { has_country_modifier = infantry_banner }
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			add_country_modifier = {
+                name = "infantry_banner"
+                duration = -1
+            }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+    
+    cavalry_banners = {
+		potential = {
+			has_country_modifier = infantry_banner
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			remove_country_modifier = infantry_banner
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
